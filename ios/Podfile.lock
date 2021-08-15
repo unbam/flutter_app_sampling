@@ -1,0 +1,40 @@
+PODS:
+  - Flutter (1.0.0)
+  - heic_to_jpg (0.0.1):
+    - Flutter
+  - media_and_create_date_picker (0.0.1):
+    - Flutter
+  - package_info (0.0.1):
+    - Flutter
+  - url_launcher (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - heic_to_jpg (from `.symlinks/plugins/heic_to_jpg/ios`)
+  - media_and_create_date_picker (from `.symlinks/plugins/media_and_create_date_picker/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
+  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  heic_to_jpg:
+    :path: ".symlinks/plugins/heic_to_jpg/ios"
+  media_and_create_date_picker:
+    :path: ".symlinks/plugins/media_and_create_date_picker/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
+  url_launcher:
+    :path: ".symlinks/plugins/url_launcher/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  heic_to_jpg: cce9d6463ab11852a7393daa61be23f98a951c64
+  media_and_create_date_picker: 98675ce67e7c8a28d0e7fff46a4678153dc3b70c
+  package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
+  url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.1
