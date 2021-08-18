@@ -12,6 +12,7 @@ import '../../models/photo_item.dart';
 import '../../providers/photo_notifier_provider.dart';
 import '../../util/util.dart';
 import '../styles.dart';
+import 'photo_detail_page.dart';
 
 ///
 /// CarouselPhotoPage
@@ -64,14 +65,13 @@ class CarouselPhotoPage extends HookConsumerWidget {
                     ? photoList.map((photoItem) {
                         return GestureDetector(
                           onTap: () {
-                            // Navigator.of(context).push(
-                            //   PhotoPage.route(
-                            //     photoInfo: {
-                            //       'tag': 'logo',
-                            //       'path': photoPath,
-                            //     },
-                            //   ),
-                            // );
+                            Navigator.of(context).push(
+                              PhotoDetailPage.route(
+                                photoInfo: {
+                                  'path': photoItem.path,
+                                },
+                              ),
+                            );
                           },
                           child: Stack(
                             children: [
@@ -81,14 +81,10 @@ class CarouselPhotoPage extends HookConsumerWidget {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5.0)),
                                   child: Center(
-                                    child: Hero(
-                                      createRectTween: _createRectTween,
-                                      tag: path.basename(photoItem.path),
-                                      child: Image.file(
-                                        File(photoItem.path),
-                                        fit: BoxFit.cover,
-                                        width: 300,
-                                      ),
+                                    child: Image.file(
+                                      File(photoItem.path),
+                                      fit: BoxFit.cover,
+                                      width: 300,
                                     ),
                                   ),
                                 ),
@@ -154,89 +150,6 @@ class CarouselPhotoPage extends HookConsumerWidget {
           photoNotifier.add(filePath, result.createDate!);
         },
         child: Icon(Icons.photo),
-      ),
-    );
-  }
-}
-
-class PhotoPage extends StatelessWidget {
-  // static Interval opacityCurve =
-  //     const Interval(0.0, 0.75, curve: Curves.fastOutSlowIn);
-  // static Route route({required photoInfo}) {
-  //   // return MaterialPageRoute(
-  //   //   fullscreenDialog: true,
-  //   //   builder: (_) => PhotoPage(),
-  //   //   settings: RouteSettings(arguments: photoInfo),
-  //   // );
-  //   return PageRouteBuilder<void>(pageBuilder: (
-  //     BuildContext context,
-  //     Animation<double> animation,
-  //     Animation<double> secondaryAnimation,
-  //   ) {
-  //     return AnimatedBuilder(
-  //         animation: animation,
-  //         builder: (BuildContext context, Widget? child) {
-  //           return Opacity(
-  //             opacity: opacityCurve.transform(animation.value),
-  //             child: PhotoPage(),
-  //           );
-  //         });
-  //   });
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    final photoInfo =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    return Container(
-      child: GestureDetector(
-        onTap: () {
-          Navigator.of(context).pop();
-        },
-        child: Hero(
-          tag: 'logo',
-          child: Image.file(File(photoInfo['path'])),
-        ),
-      ),
-    );
-    // child: Container(
-    //   padding: const EdgeInsets.all(16.0),
-    //   alignment: Alignment.topLeft,
-    //   child: Hero(
-    //     tag: photoInfo['tag'],
-    //     child: Image.file(File(photoInfo['path'])),
-    //   ),
-    // ),
-  }
-}
-
-class PhotoHero extends StatelessWidget {
-  const PhotoHero({
-    Key? key,
-    required this.photo,
-    required this.onTap,
-    required this.width,
-  }) : super(key: key);
-
-  final String photo;
-  final VoidCallback onTap;
-  final double width;
-
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      child: Hero(
-        tag: photo,
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: onTap,
-            child: Image.asset(
-              photo,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
       ),
     );
   }

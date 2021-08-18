@@ -3,7 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../styles.dart';
 import 'carousel_photo_page.dart';
-import 'carousel_product_page.dart';
 
 ///
 /// CarouselPage
@@ -43,19 +42,6 @@ class CarouselPage extends StatelessWidget {
                       Navigator.of(context).push(CarouselPhotoPage.route());
                     },
                     child: Text('Photo'),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  width: 250,
-                  height: 60,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(CarouselProductPage.route());
-                    },
-                    child: Text('Cart'),
                   ),
                 ),
               ],
