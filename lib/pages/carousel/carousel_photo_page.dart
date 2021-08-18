@@ -24,10 +24,6 @@ class CarouselPhotoPage extends HookConsumerWidget {
     );
   }
 
-  static RectTween _createRectTween(Rect? begin, Rect? end) {
-    return MaterialRectCenterArcTween(begin: begin, end: end);
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final photoNotifier = ref.watch(photoNotifierProvider.notifier);
